@@ -1,0 +1,372 @@
+:root{
+  --chat-bot:#4F6D7A;
+  --chat-user:#ffffff;
+  --main-keyword:#fdf8e1;
+  --text-white:#ffffff;
+  --text-black:#000000;
+  --drop-shadow:#C2C2C2;
+  --navBar-logo:#1B4965;
+  --loading:#ffffff;
+ } 
+ 
+ 
+ html, body {
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   min-height: 720px;
+   overflow: hidden;
+ }
+ body{
+   width: 100%;
+   height: 100%;
+   display: flex;
+   margin: 0 auto;
+   justify-content: center; 
+   align-items: center;
+ 
+ }
+ .pdf-box{
+   display: flex;
+   justify-content: center; 
+   align-items: center;
+   width: 900px;
+   height: 100%;
+ }
+ 
+ .pdf{
+   width: 100%;
+   height: 100%;
+ }
+ 
+ .chatBot-btn {
+   position: absolute;
+   bottom: 0;
+   margin-bottom: 100px;
+   right: 90px;
+   width: 70px;
+   height: 70px;
+   border-radius: 30px;
+   border: 0;
+   background-color: var(--chat-bot);
+   color: var(--text-white);
+ }
+ 
+ .web-container {
+   position: fixed;
+   bottom: -1200px; /* 초기에 화면 아래에 숨겨둠 */
+   margin-bottom: 200px;
+   right: 50px; /* 오른쪽에서 시작하도록 설정 */
+   width: 452px;
+   height: 932px;
+   box-shadow:
+     10px 10px 20px var(--drop-shadow), /* 오른쪽 아래 */
+     -10px 10px 20px var(--drop-shadow), /* 왼쪽 아래 */
+     10px -10px 20px var(--drop-shadow), /* 오른쪽 위 */
+     -10px -10px 20px var(--drop-shadow); /* 왼쪽 위 */
+   border-radius: 20px;
+   transition: all 0.6s; /* 애니메이션 적용 */
+ }
+ 
+ .nav-bar{
+   width: 431.1px;
+   height: 50px;
+   margin-left:10px;
+   margin-right:10px;
+   margin: 10px;
+   display: flex;
+ }
+ 
+ .navBar-logo{
+   width: 50px;
+   height: 50px;
+   background-color: var(--navBar-logo);
+   color: var(--text-white);
+   border-radius: 20px;
+   font-size: 13px;
+   margin-left: 10px;
+ }
+ 
+ .navBar-text{
+   margin-left: 10px;
+   font-weight: bold;
+ }
+ 
+ .chat-container::-webkit-scrollbar {
+   width: 10px; /* 스크롤바 너비 설정 */
+ }
+ 
+ .chat-container::-webkit-scrollbar-thumb {
+   background-color: #888; /* 스크롤바 썸 색상 설정 */
+   border-radius: 10px; /* 스크롤바 썸 모양 설정 */
+ }
+ 
+ .chat-container::-webkit-scrollbar-thumb:hover {
+   background-color: #555; /* 스크롤바 썸 호버 상태 색상 설정 */
+ }
+ 
+ .chat-container::-webkit-scrollbar-track {
+   background: transparent; /* 스크롤바 트랙 배경 설정 */
+ }
+ 
+ 
+ .chatbot-container {
+   width: 431.1px;
+   height: 750px;
+   display: flex;
+   flex-direction: column;
+   margin-left:10px;
+   margin-right:10px;
+   margin-top: 10px;
+   /* f2e8cf   b8f0b856   f2e8cfad*/
+   /* background: linear-gradient(to bottom,#f2e8cfa1,#f2e8cf56 50%,#ffffff);  */
+ }
+ 
+ .chat-container {
+   position: relative;
+   justify-content: flex-start;
+   font-size: 18px;
+   color: var(--text-white);
+   width: 100%;  
+   height:100%;
+   display: inline-flex;
+   flex-direction: column; 
+   overflow-y: auto; 
+   margin-bottom: 10px;
+   margin-top: 10px;
+   
+ }
+ /* 10-25 10:56 고정 chat-bot css */
+ .chat-bot{
+   word-wrap:break-word;
+   min-width: 10%;
+   max-width:70% ;
+   border-radius: 10px;
+   padding:8px;
+   margin-left:10px;
+   margin-right:10px;
+   content: '';
+   margin: 20px;
+   background-color:var(--chat-bot);
+   margin-right: auto;
+   position: relative; 
+   font-size: 16px;
+ }
+ .chat-bot::before{
+   border-top:15px solid var(--chat-bot);
+   border-left: 15px solid transparent;
+   border-right: 0px solid transparent;
+   border-bottom: 0px solid transparent;
+   content:"";
+   position:absolute;
+   top:10px;
+   left:-15px;
+ }
+ 
+ .chat-keyword{
+   margin-left: 90px;
+   align-items: start;
+ 
+ }
+ .chat-keyword button {
+   padding: 10px;
+   background-color: var(--main-keyword);
+   color:var(--text-black);
+   border-radius: 10px;
+   cursor: pointer;
+   border: none;
+   margin: 5px;
+   font-size: 15px;
+ 
+   filter: drop-shadow(-1px 2px 2px var(--drop-shadow));
+ 
+ }
+ .chat.user, .chat.bot{
+   word-wrap:break-word;
+   min-width: 10%;
+   max-width:70% ;
+   border-radius: 10px;
+   padding:8px;
+   margin-left:10px;
+   margin-right:10px;
+   margin-top:10px;
+   content: '';
+   margin: 20px;
+   font-size: 15px;
+ }
+ 
+ .chat.user {
+   filter: drop-shadow(-1px 2px 2px var(--drop-shadow));
+   background-color: var(--chat-user);
+   color: var(--text-black);
+   margin-left: auto;
+   position: relative; /* 부모 요소로부터의 상대 위치를 설정합니다. */
+ }
+ 
+ .chat.user::before {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   right: -15px; /* 왼쪽으로 이동 */
+   width: 0;
+   height: 0;
+   border-top: 15px solid var(--chat-user); /* 왼쪽 방향으로 꼬리 생성 */
+   border-left: 0 solid transparent;
+   border-right: 15px solid transparent;
+   border-bottom: 15px solid transparent;
+   filter: drop-shadow(2px  var(--drop-shadow));
+ }
+ 
+ .chat.bot { 
+   background-color: var(--chat-bot);
+   margin-right: auto;
+   position: relative; 
+   color: var(--text-white);
+ }
+ .chat.bot::before{
+   border-top:15px solid var(--chat-bot);
+   border-left: 15px solid transparent;
+   border-right: 0px solid transparent;
+   border-bottom: 0px solid transparent;
+   content:"";
+   position:absolute;
+   top:10px;
+   left:-15px;
+ }
+ 
+ .button{
+   min-width: 10%;
+   max-width:70% ;
+   padding: 10px;
+   background-color: var(--main-keyword);
+   color:var(--text-black);
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   margin: 5px; 
+   position: relative;
+   top: 800px;
+ }
+ 
+ 
+ .input-container {
+   width: 450px;
+   height: 58.6px;
+ }
+ 
+ .input-box {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-top: 5px;
+ }
+ 
+ .input-wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .text-input {
+   margin: 5px;
+   width: 70%;
+   height: 40px;
+   border-radius: 10px;
+   box-shadow: 0px 0px 10px #aaaaaa;
+   border: 0;
+ }
+ 
+ /* 10-24 14:24 버튼 수정 */
+ .send-btn {
+   background-color: #fff;
+   padding: 20px;
+   width: 45px;
+   height: 45px;
+   margin: 10px;
+   border-radius: 22.5px;
+   border: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 1px 1px 3px var(--chat-bot);
+   transition-duration: 0.1s;
+ }
+ 
+ .send-btn:active {
+   margin-left: 5px;
+   margin-top: 5px;
+   box-shadow: none;
+ }
+ 
+ /* 10-24 14:24 이미지 크기 조절 */
+ .send {
+   width: 30px;
+   height: 30px;
+ }
+ 
+ /* 2.로딩 */
+.loading {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 40%;
+    height: 60px;
+    width: 60px;
+    border: 4px solid #ccc;
+    border-top: 4px solid var(--loading);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+ 
+ /* 1. 로딩
+  .loading{
+   z-index: 1;
+   position: absolute;
+   top: 50%;
+   bottom: 50%;
+   left: 40%;
+   height: 70px;
+   width: 70px;
+   border-radius: 50%;
+   border:dashed 5px var(--navBar-logo);
+   -webkit-animation-name: spin;
+   -webkit-animation-duration: 2s;
+   -webkit-animation-iteration-count: infinite;
+   -webkit-animation-timing-function: linear;
+ }
+ 
+ @-webkit-keyframes spin {
+   from   {  -webkit-transform: rotate(0deg); }
+   to   {  -webkit-transform: rotate(360deg); }
+ }
+  */
+ 
+ @media screen and (min-width: 768px) {
+   .chat-container {
+     width: 431.1px; /* 예시: 더 큰 너비로 조절 */
+   }
+   
+   .web-container {
+     right: 100px; /* 예시: 더 오른쪽으로 이동 */
+     background-color: #ffffff;
+   }
+ }
+ 
+ /* 화면 너비가 768px 미만일 때 */
+ @media screen and (max-width: 767px) {
+   
+   .web-container {
+     right: 50px; /* 예시: 다시 오른쪽으로 이동 */
+     background-color: #ffffff;
+   }
+   
+   /* 그 외 원하는 스타일 적용 */
+ } 
+ 

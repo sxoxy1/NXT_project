@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}"/>
+    <title>Chatbot</title>
+    <script>
+    function addMessage(sender, message) {
+        const chatMessage = document.createElement("div");
+        chatMessage.className = `chat ${sender}`;
+        chatMessage.textContent = message;
+        chatContainer.appendChild(chatMessage);
+
+        const consoleMessage = document.createElement("div");
+        consoleMessage.textContent = `${sender}: ${message}`;
+    }
+    addMessage("bot","'{{first}}'");</script>
+</head>
+<body>
+    <div class="test" id="test"></div>
+    <div class="pdf-box">
+        <embed class="pdf" type="application/pdf" src="/static/pdf/sample.pdf" id="pdf">
+    </div>
+    <button class="chatBot-btn">CHAT</button>
+    <div class="web-container" id="web-container">
+        <div class="loading"id="loading"></div>
+        <div class="nav-bar">
+            <div class="navBar-logo">
+                <p style="text-align: center">CHAT</p>
+            </div>
+            <div class="navBar-text">
+                채팅
+                <p style="font-size: 12px;">몇 분 내 답변을 받으실 수 있어요</p>
+            </div>
+        </div>
+        <div class="chatbot-container">
+            <div class="chat-container" id="chat-container">
+                <!-- 10-25 10:56 고정 chat-bot 추가 -->
+            </div>
+            <div class="chat-keyword" id="keyword-container">
+            </div>
+        </div>
+        <div class="input-container">
+            <div id="input-box" class="input-box">
+                <div class="input-wrapper">
+                    <!-- 10-25 11:02 바로 커서 나타나게끔 autofocus 추가 -->
+                    <input id="text-input" class="text-input" type="text" onkeydown="handleUserInput(event)"  autofocus />
+                    <!-- 10-24 14:18 버튼 수정(아이콘) -->
+                    <button class="send-btn" onclick="request_server('',10,'직접 대화')">
+                        <img class="send" src="{{url_for('static', filename='images/send.png')}}" />
+                    </button>
+                </div>  
+                    <script src="{{url_for('static', filename='chat.js')}}">
+                    </script>
+            </div>
+        </div>
+    </div>
+</body> 
+</html>
+
